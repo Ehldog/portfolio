@@ -1,0 +1,481 @@
+/* Note à moi même : reste à faire en date du 18/02/2023:
+
+    -continuer le responsive.
+    -transformer plus de valeur commune en variable.
+    -trouver une solution pour l'onglet favoris.
+    -tranformer le plus possible de % en rem.
+    -nettoyer les class et id inutiles.
+    -coder en JS le MOTD.
+    -coder en JS la console pour le jeu.
+    -faire le jeu du site !
+*/
+
+:root{
+    --bordure_test: 2px solid black;          /* Bordure de test */
+    --width_cadre_carousel: 1500px;             /* largeur de la zone carousel */
+    --height_cadre_carousel: 563px;             /* hauteur de la zone carousel.*/
+    --width_img_carousel: 1000px;               /* largeur zone img dans le carousel */
+
+}
+
+@font-face {
+	font-family: 'Indie FLower';
+	src: url(IndieFlower-Regular.ttf);
+}
+
+@font-face {
+	font-family: 'Amstrad';
+	src: url(amstrad-cpc-extended.ttf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+body{
+    
+    width: 100vw;
+    height: 100vh;
+
+    font-family: 'Indie FLower';
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+
+}
+
+h1{
+    font-family: 'Forte';
+}
+
+h3{
+    margin-bottom: 1rem;
+}
+
+.italic{
+    font-style: italic;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+a:link{
+    color: orange;
+}
+
+a:visited{
+    color: brown;
+}
+
+/*================================*/
+/*===== Barre Nav et Console =====*/
+/*================================*/
+header{
+    height: 100px;
+}
+
+.nav_content{
+    display: flex;
+    justify-content: space-between;
+}
+
+.motd{
+    display: flex;
+    align-items: center;
+}
+
+.console img:hover{
+    cursor: pointer;
+    transform: scale(0.9);
+}
+/*============================*/
+/*===== Carousel et menu =====*/
+/*============================*/
+
+.main_content{
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn:hover{
+    cursor: pointer;
+    transform: scale(0.9);
+}
+
+/*===== Zone carousel =====*/
+
+.main_content_carousel{
+    height: calc(var(--height_cadre_carousel) + 100px);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*----- Les boutons -----*/
+
+.carousel_btn img{
+    position: absolute;
+    z-index: 50;
+}
+
+.carousel_btn img:hover{
+    cursor: pointer;
+    transform: scale(0.9);
+}
+
+#carousel_arrow_left{
+    left: 5%;
+}
+
+#carousel_arrow_right{
+    right: 5%;
+}
+
+
+/*----- Les slides -----*/
+
+.carousel_resume{
+    position: relative;
+    width: var(--width_cadre_carousel);
+    height: var(--height_cadre_carousel);
+}
+
+
+.carousel_resume li{
+    width: var(--width_cadre_carousel);
+    height: var(--height_cadre_carousel);
+
+    list-style: none;
+}
+.carousel_img{
+    width: var(--width_img_carousel);
+}
+
+.carousel_img img{
+    max-width: 100%;
+    height: auto;
+
+    border: 5px double black;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
+}
+
+.carousel_txt{
+    width: calc(var(--width_cadre_carousel) - calc(var(--width_img_carousel) + 10px));
+    
+    text-align: left;
+    margin-left: 1rem;
+
+    z-index: 50;
+}
+
+.carousel_txt p{
+    margin-bottom: 1rem;
+}
+
+
+/*----- CV -----*/
+
+
+.carousel_cv { 
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+}
+
+.carousel_cv_img{
+    width: 300px;
+}
+.carousel_cv_img img{
+
+    border: 5px double black;
+    border-radius: 5px;
+}
+
+.carousel_cv_txt{
+    width: 50%;
+
+    z-index: 50;
+}
+
+.carousel_cv_txt p{
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+/*----- Home -----*/
+
+.carousel_home{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 2rem;
+
+}
+
+.carousel_home_presentation{
+
+    height: 20%;
+    text-align: center;
+    font-size: 1.3rem;
+
+}
+
+.carousel_home_txt{
+
+    width: 60%;
+    text-align: center;
+    font-size: 1.3rem;
+
+    margin-top: 1rem;
+
+}
+
+.gd_span{
+    background-color: orange;
+    color: white;
+    border-radius: 5px;
+
+    padding: 1px 6px 2px 6px;
+
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    box-sizing: border-box;
+}
+
+.dev_span{
+    background-color: brown;
+    color: white;
+    border-radius: 5px;
+
+    padding: 1px 6px 2px 6px;
+
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    box-sizing: border-box;
+}
+.carousel_logos{
+
+    height: 40%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    margin-top: 2rem;
+}
+
+.carousel_home_nav{
+    display: flex;
+
+    z-index: 50;
+}
+
+/* Logos */
+
+.printHello{
+    font-family: 'Amstrad';
+    font-size: 1.2rem;
+}
+
+.nessie0ob{
+    font-family: 'Juice ITC';
+    font-size: 2.5rem;
+
+    margin: 0 3rem;
+}
+
+.coconutsHorses{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Kristen ITC';
+    font-size: 1.8rem;
+}
+
+/*----- Video Game 01 -----*/
+
+.carousel_video_game01{
+    display: flex;
+}
+
+/*----- Website 01 -----*/
+
+.carousel_website01{
+    display: flex;
+}
+
+.carousel_website01 img{
+    height: 550px;
+    object-fit: cover;
+}
+
+/*----- Boardgame 01 -----*/
+
+.carousel_boardgame01{
+    display: flex;
+}
+
+#asteromine_pions{
+    width: 500px;
+    z-index: 50;
+
+    position: absolute;
+    top: 35%;
+    left: 2%;
+}
+#asteromine_regles{
+    height: 500px;
+
+    position: absolute;
+    top: 0;
+    left: 25%;
+}
+
+/*----- Favoris -----*/
+
+.carousel_favoris{
+
+    width: 100%;
+    height: 100%;
+}
+
+/*----- Contact -----*/
+
+.carousel_contact{
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: left;
+}
+
+.carousel_form{
+    width: 30rem;
+
+    display: flex;
+    flex-direction: column;
+
+    font-size: 2rem;
+
+    padding: 1rem;
+
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    
+}
+
+.carousel_form span{
+    margin-top: 1rem;
+}
+.carousel_form button{
+
+    background: none;
+    border: none;
+    outline: none;
+
+    margin-top: 1rem;
+
+}
+
+/*----- Effets Slides -----*/
+
+.slide{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: 0.4s ease-in-out;
+
+}
+
+.slide.active{
+    opacity: 1;
+}
+
+/*===== Menu =====*/
+
+/*----- Icons -----*/
+
+.main_content_menu button{
+    background: none;
+    border: none;
+    outline: none;
+}
+
+/*===== Formulaire contact =====*/
+
+#form_contact{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+    font-size: 2rem;
+
+    padding: 1rem 3rem;
+    border-radius: 5px;
+    
+}
+
+#form_contact button{
+    background: none;
+    border: none;
+    outline: none;
+}
+#form_contact input{
+    margin: 5px 0;
+    font-size: 2rem;
+}
+
+#btn_close_form{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#form_contact legend{
+    margin-bottom: 10px;
+}
+
+.p_display{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#btn_submit{
+    margin-top: 1rem;
+    
+}
+
+/*===== Responsive =====*/
+
+@media screen and (min-height: 1080px) {
+    
+    header{
+        height: 200px;
+    }
+
+}
+
+
+/* Merci d'être arrivée jusqu'ici !*/
